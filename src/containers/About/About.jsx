@@ -4,44 +4,43 @@ import { motion } from "framer-motion";
 import "./About.scss";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
+import { images } from "../../constants";
 import { useTheme } from "../../hooks/useTheme";
 const About = () => {
   const { mode } = useTheme();
-  // const abouts = [
-  //   {
-  //     title: "Web Development",
-  //     description: "I am a web developer",
-  //     imgUrl: images.about01,
-  //   },
-  //   {
-  //     title: "Frontend Development",
-  //     description: "I am a Frontend developer",
-  //     imgUrl: images.about02,
-  //   },
-  //   {
-  //     title: "Backend  Development",
-  //     description: "I am abackend developer",
-  //     imgUrl: images.about03,
-  //   },
-  //   {
-  //     title: "MERN Stack",
-  //     description: "I am a MERN Stack",
-  //     imgUrl: images.about04,
-  //   },
-  // ];
-  const [abouts, setAbouts] = useState([]);
-  useEffect(() => {
-    const query = '*[_type == "abouts"]';
-    client.fetch(query).then((data) => {
-      setAbouts(data);
-    });
-  }, []);
+  const abouts = [
+    {
+      title: "1. Estructuras de datos escalables",
+      description:
+        "Certificado por Google en arquitectura cloud. Experto en notificaciones push, almacenamiento y bases de datos para soluciones seguras, eficientes y escalables.",
+      imgUrl: images.about01,
+    },
+    {
+      title: "2. Tecnología móvil multiplataforma",
+      description:
+        "Desarrollo apps en Flutter (iOS/Android) y nativas en Kotlin para Android. Soluciones flexibles, híbridas o nativas, según la necesidad del proyecto.",
+      imgUrl: images.about02,
+    },
+    {
+      title: "3. Diseños UX/UI modernos",
+      description:
+        "Certificado en UX/UI por Google. Diseño interfaces profesionales, atractivas e intuitivas con Figma, siguiendo las guías oficiales de App Store y Google Play.",
+      imgUrl: images.about03,
+    },
+    {
+      title: "4. Desarrollo a medida",
+      description:
+        "Transformo ideas en apps reales. Acompaño cada etapa, desde la arquitectura hasta el diseño final, para ofrecer soluciones efectivas y funcionales.",
+      imgUrl: images.about04,
+    },
+  ];
+
 
   return (
     <>
       <h2 className={`head-text ${mode}`}>
-        I Know that <span>Good Development</span> <br /> means{" "}
-        <span>Good Business</span>{" "}
+        El buen <span>Desarrollo</span> <br /> impulsa el{" "}
+        <span>Buen Negocio.</span>{" "}
       </h2>
       <div className="app__profiles">
         {abouts.map((about, index) => (
@@ -52,7 +51,7 @@ const About = () => {
             className={`app__profile-item `}
             key={about.title + index}
           >
-            <img src={urlFor(about.imgUrl)} alt={about.title} />
+            <img src={about.imgUrl} alt={about.title} />
             <h2 className={`bold-text ${mode}`} style={{ marginTop: "20px" }}>
               {about.title}
             </h2>
