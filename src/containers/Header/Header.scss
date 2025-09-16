@@ -105,6 +105,31 @@
   }
 }
 
+.app__header-social {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+
+  .app__social {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0;
+
+    div {
+      margin: 0 0.5rem;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    justify-content: flex-start;
+
+    .app__social {
+      justify-content: flex-start;
+    }
+  }
+}
+
 .app__header-circles {
   flex: 0.75;
   display: flex;

@@ -1,18 +1,50 @@
 import React from "react";
-import { BsTwitter, BsLinkedin, BsYoutube } from "react-icons/bs";
-import { FaTiktok, FaFacebookF } from "react-icons/fa";
+import { BsTwitter, BsLinkedin, BsYoutube, BsGithub } from "react-icons/bs";
+import { FaTiktok, FaFacebookF, FaFilePdf, FaRegFileAlt } from "react-icons/fa";
+
 const SocialMedia = () => {
   return (
     <div className="app__social">
+      {/* LinkedIn */}
       <div>
         <a
-          href="https://www.linkedin.com/in/tchouanfe-boris-327824218"
+          href="https://www.linkedin.com/in/carlos-hinojosa-vaca/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          title="LinkedIn"
         >
           <BsLinkedin />
         </a>
       </div>
+
+      {/* GitHub */}
+      <div>
+        <a
+          href="https://github.com/Charliie2003"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          title="GitHub"
+        >
+          <BsGithub />
+        </a>
+      </div>
+
+      {/* CV / Currículum */}
+      <div>
+        <a
+          href="/cv/Carlos-Hinojosa-CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Currículum (PDF)"
+          title="Currículum (PDF)"
+        >
+          <FaRegFileAlt />
+        </a>
+      </div>
+
+      {/* 
       <div>
         <a
           href="https://twitter.com/BTchouanfe?s=09"
@@ -45,6 +77,7 @@ const SocialMedia = () => {
           <FaTiktok />
         </a>
       </div>
+      */}
     </div>
   );
 };

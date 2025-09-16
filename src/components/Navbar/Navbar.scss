@@ -65,7 +65,7 @@ height: 72px;
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        color: var(--secondary-color);
+        color: #4431b2;
       }
     }
 
@@ -83,7 +83,7 @@ height: 72px;
 .app__navbar-links li a{
   color: #f0f0f0f0;
   &:hover {
-        color: #1E1137;
+        color: #4431b2;
       }
 }
 
@@ -162,7 +162,7 @@ height: 72px;
           transition: all 0.3s ease-in-out;
 
           &:hover {
-            color: var(--secondary-color);
+            color: #4431b2;
           }
         }
       }

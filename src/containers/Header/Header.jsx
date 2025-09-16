@@ -4,7 +4,8 @@ import { images } from "../../constants";
 import { AppWrap } from "../../wrapper";
 import "./Header.scss";
 import { useTheme } from "../../hooks/useTheme";
-const Header = () => {
+
+const Header = ({ socialMedia = null }) => {
   const { mode } = useTheme();
   const scaleVariants = {
     whileInView: {
@@ -37,6 +38,7 @@ const Header = () => {
             <p className="p-text">Freelancer</p>
           </div>
         </div>
+         {socialMedia && <div className="app__header-social">{socialMedia}</div>}
       </motion.div>
       <motion.div
         whileInView={{ opacity: [0, 1] }}
