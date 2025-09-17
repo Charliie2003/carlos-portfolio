@@ -16,8 +16,8 @@
     .app__work-filter-item {
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
-      background-color: #fff;
-      color: #000;
+      background-color: lightcyan;
+      color: #1F1943;
       font-weight: 800;
   
       cursor: pointer;
@@ -37,6 +37,7 @@
   
     .item-active {
       background-color: var(--secondary-color);
+      box-shadow: 0 0 10px var(--white-color);
       color: #fff;
     }
   }

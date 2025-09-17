@@ -33,11 +33,11 @@ const Work = () => {
   return (
     <>
       <h2 className={`head-text ${mode}`}>
-        My Creative <span>Portfolio</span> <br /> Section{" "}
+        Mi Sección <span>De Portfolio</span> <br /> Creativo{" "}
         {/* <span>Good Business</span>{" "} */}
       </h2>
       <div className="app__work-filter">
-        {["UI/UX", "Web App", "Mobile App", "React JS", "Vue JS", "All"].map(
+        {["UI/UX", "Android", "Multiplataforma","Todo"].map(
           (item, index) => (
             <div
               key={index}
