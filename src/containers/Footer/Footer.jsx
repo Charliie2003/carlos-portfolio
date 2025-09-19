@@ -60,17 +60,18 @@ const Footer = () => {
   const { mode } = useTheme();
   return (
     <>
-      <h2 className={`head-text ${mode}`}>Take a coffe & chat with me</h2>
+      <h2 className={`head-text ${mode}`}>¿Tienes una idea de <span>app</span>?</h2>
+       <p className={`p-text-footer`}>Toma un café y hablemos</p>
       <div className="app__footer-cards">
         <div className="app__footer-card">
           <img src={images.email} alt="email" />
-          <a href="carlos.hinojosa.vaca@gmail.com" className="p-text">
+          <a href="carlos.hinojosa.vaca@gmail.com" className="p-text-footer">
             carlos.hinojosa.vaca@gmail.com
           </a>
         </div>
         <div className="app__footer-card">
           <img src={images.mobile} alt="mobile" />
-          <a href="tel: +34 602 585 389" className="p-text">
+          <a href="tel: +34 602 585 389" className="p-text-footer">
             +34 602 585 389
           </a>
         </div>
@@ -85,7 +86,7 @@ const Footer = () => {
             <input
               type="text"
               className={`p-text ${mode}`}
-              placeholder="Your Name"
+              placeholder="Tu Nombre"
               // value={name}
               name="name"
               // onChange={handleChangeInput}
@@ -95,7 +96,7 @@ const Footer = () => {
             <input
               type="email"
               className={`p-text ${mode}`}
-              placeholder="Your Email"
+              placeholder="Tu Email"
               // value={email}
               name="email"
               // onChange={handleChangeInput}
@@ -105,7 +106,7 @@ const Footer = () => {
             <textarea
               name="message"
               // value={message}
-              placeholder="Your Message"
+              placeholder="Tu mensaje"
               className={`p-text ${mode}`}
               // onChange={handleChangeInput}
             ></textarea>
@@ -115,7 +116,7 @@ const Footer = () => {
             className={`p-text ${mode}`}
             // onClick={handleSubmit}
           >
-            {loading ? "Sending..." : " Send Message"}
+            {loading ? "Enviando..." : " Enviar Mensaje"}
           </button>
         </form>
       ) : (

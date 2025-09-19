@@ -11,6 +11,7 @@ import {
 import "./App.scss";
 
 const App = () => {
+  const SHOW_TESTIMONIALS = false; // Set true to show testimonials again
   return (
     <div className={`app`}>
       <Navbar />
@@ -18,7 +19,7 @@ const App = () => {
       <About />
       <Work />
       <Skills />
-      <Testimonials />
+      {SHOW_TESTIMONIALS && <Testimonials />}
       <Footer />
     </div>
   );

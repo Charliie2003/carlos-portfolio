@@ -12,7 +12,8 @@ const Navbar = () => {
   const toggleMode = () => {
     changeMode(mode === "dark" ? "light" : "dark");
   };
-const navLinks = [
+  const showTestimonials = false; // Toggle to re-enable testimonials entry
+  const navLinks = [
     { id: "home", label: "home" },
     { id: "about", label: "acerca" },
     { id: "work", label: "proyectos" },
@@ -21,13 +22,17 @@ const navLinks = [
     { id: "contact", label: "contacto" },
   ];
 
+  const visibleLinks = showTestimonials
+    ? navLinks
+    : navLinks.filter(({ id }) => id !== "testimonial");
+
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
       <img src={images.app_logo} alt="logo" className="app__logo" />
       </div>
       <ul className={`app__navbar-links ${mode}`}>
-         {navLinks.map(({ id, label }) => (
+         {visibleLinks.map(({ id, label }) => (
           <li className={`app__flex  p-text ${mode}`} key={`link-${id}`}>
             <div />
             <a href={`#${id}`}>{label}</a>
@@ -44,7 +49,7 @@ const navLinks = [
           >
             <HiX onClick={() => setToggle(false)} />
             <ul className={`app__navbar-links ${mode}`}>
-                 {navLinks.map(({ id, label }) => (
+                 {visibleLinks.map(({ id, label }) => (
                 <li key={id}>
                   <a href={`#${id}`} onClick={() => setToggle(false)}>
                     {label}
