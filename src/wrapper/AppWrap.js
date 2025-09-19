@@ -7,22 +7,25 @@ const AppWrap = (Component, idName, className = '') => function HOC () {
   const { mode } = useTheme()
   const containerClassName = ['app__container', mode, className].filter(Boolean).join(' ')
   const isHeaderSection = idName === 'home'
+  const isFooterSection = idName === 'contact'
   const headerSocialMedia = isHeaderSection ? <SocialMedia /> : null
 
-   return (
+  return (
     <div id={idName} className={containerClassName}>
       {!isHeaderSection && <SocialMedia />}
       <div className='app__wrapper app__flex'>
         <Component {...(isHeaderSection ? { socialMedia: headerSocialMedia } : {})} />
-        <div className='copyright'>
-          <p className={`p-text ${mode}`}>
-            @
-            {year} Carlos Hinojosa
-          </p>
-          <p className={`p-text ${mode}`}>
-            @All rights reserved
-          </p>
-        </div>
+        {isFooterSection && (
+          <div className='copyright'>
+            <p className='p-text copyright-text'>
+              ©
+              {year} Carlos Hinojosa
+            </p>
+            <p className='p-text copyright-text'>
+              © Todos los derechos reservados
+            </p>
+          </div>
+        )}
       </div>
       <NavigationDots active={idName} />
     </div>

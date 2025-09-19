@@ -45,6 +45,7 @@
   }
 }
 
+
 .copyright {
   width: 100%;
   padding: 2rem 0 0;
@@ -53,11 +54,19 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  align-self: flex-end;
+  margin-top: auto;
+  text-align: right;
 
   p {
     text-transform: uppercase;
-    color: var(--black-color);
+    color: lightcyan;
   }
+}
+
+.copyright-text {
+  color: lightcyan !important;
+  letter-spacing: 0.05em;
 }
 
 .head-text {
@@ -209,6 +218,9 @@
 
   .copyright {
     padding: 2rem;
+    align-self: center;
+    align-items: center;
+    text-align: center;
 
   }
 }

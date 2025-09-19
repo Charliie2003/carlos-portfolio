@@ -1,6 +1,7 @@
 import React from "react";
 import { BsTwitter, BsLinkedin, BsYoutube, BsGithub } from "react-icons/bs";
 import { FaTiktok, FaFacebookF, FaFilePdf, FaRegFileAlt } from "react-icons/fa";
+import cvFile from "../assets/CV_CARLOS.pdf";
 
 const SocialMedia = () => {
   return (
@@ -34,11 +35,11 @@ const SocialMedia = () => {
       {/* CV / Currículum */}
       <div>
         <a
-          href="/cv/Carlos-Hinojosa-CV.pdf"
-          target="_blank"
+          href={cvFile}
           rel="noopener noreferrer"
           aria-label="Currículum (PDF)"
           title="Currículum (PDF)"
+          download="Carlos-Hinojosa-CV.pdf"
         >
           <FaRegFileAlt />
         </a>
