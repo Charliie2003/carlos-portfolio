@@ -1,3 +1,3 @@
 import images from './images'
-
-export { images }
+import works from "./works";
+export { images, works };

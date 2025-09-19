@@ -1,34 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { AppWrap, MotionWrap } from "../../wrapper";
-import { urlFor, client } from "../../client";
+import { works as worksData } from "../../constants";
 import "./Work.scss";
 import { useTheme } from "../../hooks/useTheme";
+
 const Work = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
+ const [activeFilter, setActiveFilter] = useState("");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
-  const [works, setWorks] = useState([]);
-  const [filterWork, setFilterWork] = useState([]);
+    const [filterWork, setFilterWork] = useState(worksData);
   const handleWorkFilter = (item) => {
-    setActiveFilter(item);
+      const isSameFilter = activeFilter === item;
+    setActiveFilter(isSameFilter ? "" : item);
     setAnimateCard([{ y: 100, opacity: 0 }]);
     setTimeout(() => {
       setAnimateCard([{ y: 0, opacity: 1 }]);
-      if (item === "All") {
-        setFilterWork(works);
+   if (isSameFilter) {
+        setFilterWork(worksData);
       } else {
-        setFilterWork(works.filter((work) => work.tags.includes(item)));
+        setFilterWork(
+          worksData.filter((work) => work.tags.includes(item))
+        );
       }
     }, 500);
   };
-  useEffect(() => {
-    const query = '*[_type== "works"]';
-    client.fetch(query).then((data) => {
-      setWorks(data);
-      setFilterWork(data);
-    });
-  }, []);
+  
   const { mode } = useTheme();
   return (
     <>
@@ -37,7 +34,7 @@ const Work = () => {
         {/* <span>Good Business</span>{" "} */}
       </h2>
       <div className="app__work-filter">
-        {["UI/UX", "Android", "Multiplataforma","Todo"].map(
+        {["UI/UX", "Android", "Multiplataforma", "Todo"].map(
           (item, index) => (
             <div
               key={index}
@@ -59,7 +56,7 @@ const Work = () => {
         {filterWork.map((work, index) => (
           <div className={`app__work-item ${mode} app_flex`} key={index}>
             <div className="app__work-img app__flex">
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
+               <img src={work.imgUrl} alt={work.title} />
 
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
@@ -94,8 +91,8 @@ const Work = () => {
             </div>
 
             <div className="app__work-content app__flex">
-              <h4 className={`bold-text ${mode}`}>{work.title}</h4>
-              <p className={`p-text ${mode}`} style={{ marginTop: 10 }}>
+              <h4 className={`bold-work-text`}>{work.title}</h4>
+              <p className={`p-text-work`} style={{ marginTop: 10 }}>
                 {" "}
                 {work.description}
               </p>
@@ -108,7 +105,7 @@ const Work = () => {
                 </div>
               </div>
               <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
+                <p className="p-text-work">{work.tags[0]}</p>
               </div>
             </div>
           </div>
@@ -117,7 +114,7 @@ const Work = () => {
     </>
   );
 };
-
+ 
 export default AppWrap(
   MotionWrap(Work, "app__works"),
   "work",

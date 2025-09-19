@@ -23,7 +23,7 @@ const Skills = () => {
   const { mode } = useTheme();
   return (
     <>
-      <h2 className={`head-text ${mode}`}>Skills & Experiences</h2>
+      <h2 className={`head-text ${mode}`}>Experiencia, Certificaciones<br></br> & <span>skills</span></h2>
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
@@ -36,11 +36,10 @@ const Skills = () => {
             >
               <div
                 className="app__flex"
-                style={{ backgroundColor: skill.bgColor }}
               >
                 <img src={urlFor(skill.icon)} alt={skill.name} />
               </div>
-              <p className={`p-text ${mode}`}>{skill.name}</p>
+              <p className={`p-text-skill`}>{skill.name}</p>
             </motion.div>
           ))}
         </motion.div>
